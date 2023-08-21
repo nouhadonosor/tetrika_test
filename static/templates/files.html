@@ -1,0 +1,22 @@
+<head> </head>
+<body>
+  <form method="post" action="/files" enctype="multipart/form-data">
+    <input type="file" name="file" />
+    <p><input type="submit" /></p>
+  </form>
+  <form method="get" action="/files">
+    <input type="submit" value="Refresh Page" />
+  </form>
+
+  {% if task_status %}
+  {% for k, v in task_status.items() %}
+  <div>
+    {% if v == "done"%}
+    <a href="/file/{{k}}">{{k}} - {{v}}</a>
+    {% else %}
+    <a>{{k}} - {{v}}</a>
+    {% endif %}
+  </div>
+  {% endfor%}
+  {% endif %}
+</body>
