@@ -13,8 +13,6 @@ app.include_router(router)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.on_event('startup')
 def init():
-    db_user="postgres"
-    db_password="postgres"
     if not os.path.exists(settings.tempfiles_dir):
         os.mkdir("./" + settings.tempfiles_dir)
 
